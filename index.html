@@ -3,68 +3,66 @@
 <head>
     <link rel="stylesheet" href="Style.css">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
     <header class="navbar-principal">
 
-        <div class="menu-principal" id="DESCUBRE">
+        <div class="menu-principal">
 
-            <a href="descubre.html" id="DESCUBRE">DESCUBRE</a>
-            <a href="fichajes.html" id="DESCUBRE">FICHAJES </a>
-            <a href="valoresmercado.html"id=DESCUBRE>VALORES DE MERCADO</a>
-            <a href="estadisticas.html"id=DESCUBRE>ESTADÍSTICAS</a>
+            <a href="descubre.html">DESCUBRE</a>
+            <a href="fichajes.html">FICHAJES </a>
+            <a href="valoresmercado.html">VALORES DE MERCADO</a>
 
         </div>
         <a href="index.html"><button>Inicio</button></a>
 
-        
+    </header>
+
 <img src="transfer.png" alt="Mercado de Fichajes 26"> 
 
 <h2>Este es el mercado que te dirá las últimas noticias de fichajes en el fútbol internacional</h2>
 
-</body>
-<html>
+     <div class="carruseles">
+
     <div class="carrusel-contenedor">
-        <div class="carrusel" id="carrusel">
-        
-          <div class="diapositiva">
-            <img src="messi2.png" alt="lionel-messi">
-          </div>
-          <div class="diapositiva">
-            <img src="lamine2.png" alt="lamine-yamal">
-          </div>
-            <div class="diapositiva">
-            <img src="harry kane2.jpg" alt="harry-kane">
-          </div>
-          <div class="diapositiva">
-            <img src="messipremio.png" alt="lionel-messi">
-          </div>
-          
-        </div>
-        <button class="boton-carrusel anterior" onclick="mover(-1)">&#10094;</button>
-        <button class="boton-carrusel siguiente" onclick="mover(1)">&#10095;</button>
+      <div class="carrusel">
+        <div class="diapositiva"><img src="messi2.png" alt="messi-y-ronaldo"></div>
+        <div class="diapositiva"><img src="lamine2.png" alt="lamine-yamal"></div>
+        <div class="diapositiva"><img src="harry.jfif" alt="harry-kane"></div>
       </div>
+      <button class="boton-carrusel anterior" onclick="mover(this, -1)">&#10094;</button>
+      <button class="boton-carrusel siguiente" onclick="mover(this, 1)">&#10095;</button>
+    </div>
 
+    <div class="carrusel-contenedor">
+      <div class="carrusel">
+        <div class="diapositiva"><img src="psg.png" alt="entrenadores"></div>
+        <div class="diapositiva"><img src="kimine.png" alt="yamal-y-mbappe"></div>
+        <div class="diapositiva"><img src="judeb.png" alt="bellingham"></div>
+      </div>
+      <button class="boton-carrusel anterior" onclick="mover(this, -1)">&#10094;</button>
+      <button class="boton-carrusel siguiente" onclick="mover(this, 1)">&#10095;</button>
+    </div>
 
-       <script>
-    let indiceActual = 0;
+  </div>
 
-    function mover(direccion) {
-      const diapositivas = document.querySelectorAll('.diapositiva');
-      const totalDiapositivas = diapositivas.length;
-     
-      indiceActual += direccion;
+  <script>
+    function mover(boton, direccion) {
+      const contenedor = boton.closest('.carrusel-contenedor');
+      const carrusel = contenedor.querySelector('.carrusel');
+      const total = carrusel.querySelectorAll('.diapositiva').length;
 
-      if (indiceActual >= totalDiapositivas) {
-        indiceActual = 0;
-      } else if (indiceActual < 0) {
-        indiceActual = totalDiapositivas - 1;
-      }
+      let indice = Number(contenedor.dataset.indice || 0) + direccion;
 
-      const carrusel = document.getElementById('carrusel');
-      carrusel.style.transform = `translateX(-${indiceActual * 100}%)`;
+      if (indice >= total) indice = 0;
+      else if (indice < 0) indice = total - 1;
+
+      contenedor.dataset.indice = indice;
+      carrusel.style.transform = `translateX(-${indice * 100}%)`;
     }
   </script>
-        
+
+</body>
+</html>

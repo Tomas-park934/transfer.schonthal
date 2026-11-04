@@ -77,18 +77,40 @@ button {
 }
 .tarjeta-grande { grid-column: 1; grid-row: 1 / 3; }
 
-.carrusel-contenedor {
-    position: relative; width: 90%; max-width: 600px;
-    margin: 20px auto; overflow: hidden;
+/* ===== CARRUSELES (uno al lado del otro) ===== */
+.carruseles { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin: 20px; }
+.carrusel-contenedor { position: relative; flex: 1 1 300px; max-width: 600px; overflow: hidden; border-radius: 12px; }
+.carrusel { display: flex; transition: transform .5s ease; }
+.diapositiva { flex: 0 0 100%; }
+.diapositiva img { display: block; width: 100%; height: 380px; object-fit: cover; object-position: top; }
+.boton-carrusel { position: absolute; top: 50%; transform: translateY(-50%); padding: 8px 10px; background-color: #102744; color: white; border: none; font-size: 18px; cursor: pointer; }
+.anterior { left: 8px; }
+.siguiente { right: 8px; }
+
+/* ===== LOGO TRANSFERMARKT ===== */
+.logo { width: 1300px; max-width: 100%; height: auto; }
+.descubre {
+    margin: 20px; padding: 20px;
+    background-color: #f2f4f7;
 }
-.carrusel { display: flex; } .diapositiva { min-width: 100%; }
-.diapositiva img { width: 100%; height: 350px; object-fit: cover; }
-.boton-carrusel {
-    position: absolute; top: 45%; padding: 10px;
-    background-color: #102744; color: white;
-    border: none; font-size: 20px;
+.jugador-dia {
+    display: flex; gap: 30px; align-items: center;
+    margin-top: 20px; padding: 20px;
+    background-color: white; border: 1px solid #ddd;
 }
-.anterior { left: 10px; } .siguiente { right: 10px; }
+.jugador-dia img {
+    width: 600px; border: 3px solid #102744;
+}
+.info-jugador h3 {
+    margin: 0 0 10px 0; color: #102744; font-size: 50px;
+}
+.info-jugador p { margin: 6px 0; }
+.frase { color: #666; font-style: italic; }
+.info-jugador a {
+    display: inline-block; margin-top: 10px; padding: 10px 16px;
+    background-color: #102744; color: white; text-decoration: none;
+}
+.jugador-dia img { width: 600px; height: 450px; object-fit: cover; object-position: top; }
 @media (max-width: 700px) {
     .menu-principal { gap: 14px; padding: 14px; }
     .fichajes, .valores { margin: 10px; padding: 12px; }
@@ -97,5 +119,4 @@ button {
         grid-template-rows: 180px 140px 140px;
     }
     .tarjeta-grande { grid-column: 1 / 3; grid-row: 1; }
-    .diapositiva img { height: 240px; }
 }
