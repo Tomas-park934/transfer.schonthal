@@ -1,0 +1,101 @@
+body {
+    margin: 0; background-color: white;
+    color: #222; font-family: Arial, sans-serif;
+}
+.menu-principal {
+    display: flex; flex-wrap: wrap; gap: 28px;
+    padding: 18px 24px; background-color: white;
+}
+.menu-principal a {
+    color: #102744; font-size: 14px;
+    font-weight: bold; text-decoration: none;
+}
+.menu-principal a:hover { color: #1678bd; }
+h1 { color: #102744; font-size: 28px; } h2 { color: #444; }
+button {
+    padding: 10px 16px; background-color: #102744; color: white; border: 1px solid #102744;
+}
+.fichajes {
+    margin: 20px; padding: 20px;
+    background-color: #f2f4f7; overflow-x: auto;
+}
+.tabla-fichajes { width: 100%; min-width: 650px; }
+.fila-fichaje {
+    display: grid; grid-template-columns: 1.5fr 2fr 2fr 1fr 1fr;
+    min-height: 55px; background-color: white;
+    border-bottom: 1px solid #ddd;
+}
+.fila-fichaje > div {
+    display: flex; align-items: center;
+    padding: 10px; border-right: 1px solid #ddd;
+}
+.fila-fichaje.encabezado, .encabezado-valor {
+    background-color: #102744; color: white; font-weight: bold;
+}
+.club img { width: 25px; height: 25px; }
+.valores {
+    margin: 20px; padding: 20px;
+    background-color: white; overflow-x: auto;
+}
+.subtitulo { margin-bottom: 20px; color: #666; }
+.lista-valores { width: 100%; min-width: 760px; }
+.fila-valor {
+    display: grid; grid-template-columns: 40px 2fr 50px 1.3fr 1.5fr 1.2fr;
+    align-items: center; gap: 8px; min-height: 60px; padding: 8px; border-bottom: 1px solid #ddd; font-size: 14px;
+}
+.datos-jugador, .nacionalidad, .datos-club {
+    display: flex; align-items: center; gap: 8px;
+}
+.datos-jugador img { width: 38px; height: 42px; }
+.datos-jugador a, .datos-club {
+    color: #0066a1; font-weight: bold; text-decoration: none;
+}
+.nacionalidad img { width: 20px; height: 14px; } .datos-club img { width: 27px; height: 27px; }
+.precio-valor { font-weight: bold; }
+.estadisticas {
+    padding: 25px; background-color: #061d40; color: white;
+}
+.estadisticas h1 {
+    color: white; text-align: center; font-size: 26px;
+}
+.cuadricula-estadisticas {
+    display: grid; grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 150px 150px; gap: 20px;
+}
+.tarjeta-estadistica {
+    position: relative; display: flex; align-items: flex-end;
+    justify-content: center; overflow: hidden; border: 3px solid #55a5ff;
+    background-color: #0b3269; color: white; text-decoration: none;
+}
+.tarjeta-estadistica img {
+    position: absolute; width: 100%; height: 100%; object-fit: cover;
+}
+.tarjeta-estadistica h3 {
+    position: relative; margin: 0; padding: 10px;
+    background-color: #102744; color: white;
+    text-align: center; font-size: 13px;
+}
+.tarjeta-grande { grid-column: 1; grid-row: 1 / 3; }
+
+.carrusel-contenedor {
+    position: relative; width: 90%; max-width: 600px;
+    margin: 20px auto; overflow: hidden;
+}
+.carrusel { display: flex; } .diapositiva { min-width: 100%; }
+.diapositiva img { width: 100%; height: 350px; object-fit: cover; }
+.boton-carrusel {
+    position: absolute; top: 45%; padding: 10px;
+    background-color: #102744; color: white;
+    border: none; font-size: 20px;
+}
+.anterior { left: 10px; } .siguiente { right: 10px; }
+@media (max-width: 700px) {
+    .menu-principal { gap: 14px; padding: 14px; }
+    .fichajes, .valores { margin: 10px; padding: 12px; }
+    .cuadricula-estadisticas {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 180px 140px 140px;
+    }
+    .tarjeta-grande { grid-column: 1 / 3; grid-row: 1; }
+    .diapositiva img { height: 240px; }
+}
